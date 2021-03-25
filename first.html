@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<hmtl lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <script>
+        function check(){
+            console.log("function evoke")
+            if(document.getElementById("checkRadio").checked){
+                console.log("read")
+                document.getElementById("textBox").readOnly = true;
+
+            }else{
+                console.log("edit")
+                document.getElementById("textBox").readOnly = false;
+            }
+        }
+
+    </script>
+    <body>
+    <input type="radio" onchange="check()" id="checkRadio" name="control">readOnly</input>
+    <input type="radio" onchange="check()"  name="control">Editable</input>
+
+    <input type="text" id="textBox"></input>
+    </body> 
+
+</hmtl>

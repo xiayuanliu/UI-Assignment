@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<hmtl lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <script>
+        function getValue(){
+            var r = document.getElementsByTagName('input');
+            for(let i = 0; i < r.length; i++){
+                if(r[i].checked){
+                    console.log(r[i].value);
+                    document.getElementById('result').innerHTML += ' ' + r[i].value;       
+                }
+            }
+        }
+    </script>
+    <body>
+        <h3>What do you want?</h3>
+        Drinks:<br>
+        <input type="radio" name="drink" value="Coke">Coke</input>
+        <input type="radio" name="drink" value="Sprite">Sprite</input>
+        <input type="radio" name="drink" value="Fanta">Fanta</input>
+        <br>
+        Meals:<br>
+        <input type="radio" name="meal" value="Rice and Beans">Rice and Beans</binput>
+        <input type="radio" name="meal" value="Hamburger">Hamburger</input>
+        <input type="radio" name="meal" value="Taco">Taco</input> 
+        <br>
+        <input type="button" onclick="getValue()" value="CLICK"> 
+        <br>     
+        Your choice :<label id="result"></label>
+    </body>
+</hmtl>
