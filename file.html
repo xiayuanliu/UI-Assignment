@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <form>
+    <input type="file" multiple id="files">
+    <output id="list"></output>
+    <script>
+    function formatBytes(bytes) {
+        if(bytes < 1024) return bytes + " Bytes";
+        else if(bytes < 1048576) return(bytes / 1024).toFixed(2) + " KB";
+        else if(bytes < 1073741824) return(bytes / 1048576).toFixed(2) + " MB";
+        else return(bytes / 1073741824).toFixed(2) + " GB";
+    };
+        function handleFileSelected(evt){
+            // console.log(evt);
+            var files = evt.target.files;
+            var output = [];
+            for (let i = 0; i < files.length; i++) {
+                f = files[i]
+                output.push(`<li><strong>`, f.name, `</strong>(`, f.type || 'n//a',')-', formatBytes(f.size),', last modified:',
+                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n//a', '</li>');
+            }
+            document.getElementById('list').innerHTML = '<ul>'+output.join(' ')+'</ul>';
+        }
+        document.getElementById("files").addEventListener('change', handleFileSelected, false)
+    </script>
+  </form>
+</body>
+</html>
